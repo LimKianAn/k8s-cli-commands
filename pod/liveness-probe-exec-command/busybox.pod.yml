@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: livenessProbe-exec-command
+  labels:
+    test: liveness
+spec:
+  containers:
+    - name: livenessProbe-exec-command
+      image: k8s.gcr.io/busybox
+      resources:
+        limits:
+          memory: "64mi" # mebibyte
+          cpu: "50m" # 50 millicpu == 0.05 cpu
+      args:
+        - /bin/sh
+        - -c
+        - touch /tmp/healthy; sleep 15; rm -fr /tmp/healthy; sleep 600
+      livenessProbe:
+        exec:
+          command:
+            - containers
+            - /tmp/healthy
+        initialDelaySeconds: 5
+        periodSeconds: 5
