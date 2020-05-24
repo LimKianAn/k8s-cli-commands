@@ -19,7 +19,7 @@ spec:
       livenessProbe:
         exec:
           command:
-            - containers
+            - cat
             - /tmp/healthy
         initialDelaySeconds: 5
         periodSeconds: 5
