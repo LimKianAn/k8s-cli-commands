@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: deployment
+meta-data:
+  name: nginx-again
+spec:
+  selector:
+    matchLabels:
+      app: nginx-again
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: nginx-again
+    spec:
+      containers:
+        - name: nginx-again
+          image: nginx:alpine
+          ports:
+            - containerPort: 80
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "100m"
