@@ -1,5 +1,6 @@
 # Remove containers
-docker ps -all
+docker ps --all
+docker container stop <container ID>
 docker container rm <container ID>
 
 # Remove images
