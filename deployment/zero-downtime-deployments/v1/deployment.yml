@@ -14,5 +14,5 @@ spec:
         app: node-server
     spec:
       containers:
-        - image: node-server:1.0
+        - image: limkianandocker/node-server:1.0
           name: node-server
